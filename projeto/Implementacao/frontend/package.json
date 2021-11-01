@@ -1,0 +1,77 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@svgr/webpack": "^5.4.0",
+    "axios": "^0.21.3",
+    "classnames": "^2.3.1",
+    "env-cmd": "^10.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "formik": "^2.2.9",
+    "next": "12.0.2",
+    "next-compose-plugins": "^2.2.0",
+    "next-fonts": "^1.4.0",
+    "next-images": "^1.4.0",
+    "next-routes": "^1.4.2",
+    "prop-types": "^15.7.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-input-mask": "^2.0.4",
+    "styled-components": "^5.3.3",
+    "sweetalert2": "^10.12.5",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "dev": "env-cmd -f .env.development node src/server/index.js",
+    "pm2-dev": "pm2 start --env development -i max",
+    "start": "yarn && next build && env-cmd -f .env.production node src/server/index.js",
+    "pm2-start": "yarn && next build && pm2 start --env production -i max",
+    "lint": "next lint"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "commitizen": "^4.1.2",
+    "cz-lean-changelog": "^0.0.2",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "sonar-scanner": "^3.1.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "./node_modules/.bin/eslint --fix",
+      "./node_modules/.bin/prettier --write",
+      "git add"
+    ],
+    "src/**/*.{scss,css}": [
+      "./node_modules/.bin/prettier --write",
+      "git add"
+    ]
+  }
+}
