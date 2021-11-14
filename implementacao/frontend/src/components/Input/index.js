@@ -4,7 +4,7 @@ import { manageClasses } from "utils/helpers/renders";
 
 import * as S from "./styled";
 
-export const Input = ({
+const Input = ({
   error,
   label,
   name,
@@ -59,3 +59,5 @@ Input.propTypes = {
   width: PropTypes.string,
   disabled: PropTypes.bool,
 };
+
+export default Input;

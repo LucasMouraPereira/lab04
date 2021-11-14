@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const Flex = styled.div`
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+`;
+
+export const WrapperTab = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Title = styled.div`
   width: 100%;
   padding: 6px;
@@ -18,5 +30,5 @@ export const Title = styled.div`
 `;
 
 export const Content = styled.div`
-  display: ${({ active }) => active ? "block" : "none"},
+  display: ${({ active }) => active ? "block" : "none"};
 `;

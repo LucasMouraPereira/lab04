@@ -7,20 +7,16 @@ const Tabs = ({ active, tabs }) => (
   <>
     <S.Flex>
       {tabs.map((tab, index) => (
-        <S.Title
-          key={index}
-          active={active === index}
-          onClick={tab.callback}
-        >
-          <h3>{tab.title}</h3>
-        </S.Title>
+        <S.WrapperTab>
+          <S.Title key={index} active={active === index} onClick={tab.callback}>
+            <h3>{tab.title}</h3>
+          </S.Title>
+          <S.Content key={index} active={active === index}>
+            {tab.content}
+          </S.Content>
+        </S.WrapperTab>
       ))}
     </S.Flex>
-    {tabs.map((tab, i) => (
-      <S.Content key={i} active={active === i}>
-        {tab.content}
-      </S.Content>
-    ))}
   </>
 );
 
