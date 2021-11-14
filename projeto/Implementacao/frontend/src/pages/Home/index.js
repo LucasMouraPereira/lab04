@@ -1,11 +1,7 @@
-import React from "react";
-
-const Home = () => {
-  return (
-    <div>
-      <div>Configuração iniciais do projeto frontend</div>
-    </div>
-  )
+export async function getStaticProps() {
+  return {
+    props: {},
+  }
 }
 
-export default Home;
+export { default } from 'containers/Home';

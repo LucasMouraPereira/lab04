@@ -37,17 +37,19 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
           />
           <script type="text/javascript" defer src="//assets.pinterest.com/js/pinit.js" />
           <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin />
+          <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin />
           <script
-            src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+            src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
             crossorigin
           />
-
+          <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin />
+          <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin />
           <script
             src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
             crossorigin
