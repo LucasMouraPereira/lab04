@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "fields": "name"
+    },
+    {
+      "fields": "email"
+    },
+    {
+      "fields": "CPF"
+    },
+    {
+      "fields": "RG"
+    },
+    {
+      "fields": "RG"
+    },
+    {
+      "fields": "Rua"
+    },
+    {
+      "fields": "numero"
+    },
+    {
+      "fields": "bairro"
+    },
+    {
+      "fields": "cidade"
+    },
+    {
+      "fields": "senha"
+    }
+  ]
+}

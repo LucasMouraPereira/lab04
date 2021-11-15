@@ -1,0 +1,174 @@
+[
+  {
+    "id": 0,
+    "name": "PUC Minas",
+    "courses": [
+      {
+        "id": 0,
+        "name": "Engenharia de Software",
+        "teachers": [
+          {
+            "id": 0,
+            "name": "Laerte",
+            "CPF": "11111111111",
+            "departamento": "Exatas",
+            "password": "12345678"
+          },
+          {
+            "id": 1,
+            "name": "Guta",
+            "CPF": "22222222222",
+            "departamento": "Exatas",
+            "password": "12345678"
+          },
+          {
+            "id": 2,
+            "name": "Soraia",
+            "CPF": "33333333333",
+            "departamento": "Exatas",
+            "password": "12345678"
+          }
+        ],
+        "students": [
+          {
+            "id": 0,
+            "name": "Lucas", 
+            "email": "lucas@gmail.com", 
+            "CPF": "11111111111", 
+            "RG": "11111111",
+            "Rua": "x",
+            "numero": "333",
+            "bairro": "Eldorado",
+            "cidade": "Contagem"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Ciências da Computação",
+        "teachers": [
+          {
+            "id": 0,
+            "name": "Laerte",
+            "CPF": "11111111111",
+            "departamento": "Exatas",
+            "password": "12345678"
+          },
+          {
+            "id": 3,
+            "name": "Romeo",
+            "CPF": "444444444444",
+            "departamento": "Exatas",
+            "password": "12345678"
+          },
+          {
+            "id": 4,
+            "name": "Lesandro",
+            "CPF": "555555555555",
+            "departamento": "Exatas",
+            "password": "12345678"
+          }
+        ],
+        "students": [
+          {
+            "id": 0,
+            "name": "Lucas", 
+            "email": "lucas@gmail.com", 
+            "CPF": "11111111111", 
+            "RG": "11111111",
+            "Rua": "x",
+            "numero": "333",
+            "bairro": "Eldorado",
+            "cidade": "Contagem"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "UFMG",
+    "courses": [
+      {
+        "id": 5,
+        "name": "Psicologia",
+        "teachers": [
+          {
+            "id": 5,
+            "name": "Teresa",
+            "CPF": "666666666666",
+            "departamento": "Humanass",
+            "password": "12345678"
+          },
+          {
+            "id": 6,
+            "name": "Cristina",
+            "CPF": "77777777777",
+            "departamento": "Humanas",
+            "password": "12345678"
+          },
+          {
+            "id": 7,
+            "name": "Sergio",
+            "CPF": "88888888888",
+            "departamento": "Humanas",
+            "password": "12345678"
+          }
+        ],
+        "students": [
+          {
+            "id": 0,
+            "name": "Lucas", 
+            "email": "lucas@gmail.com", 
+            "CPF": "11111111111", 
+            "RG": "11111111",
+            "Rua": "x",
+            "numero": "333",
+            "bairro": "Eldorado",
+            "cidade": "Contagem"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Ciencias Sociais",
+        "teachers": [
+          {
+            "id": 8,
+            "name": "Ricardo",
+            "CPF": "99999999999",
+            "departamento": "Humanas",
+            "password": "12345678"
+          },
+          {
+            "id": 9,
+            "name": "Roberto",
+            "CPF": "10101010101",
+            "departamento": "Humanas",
+            "password": "12345678"
+          },
+          {
+            "id": 10,
+            "name": "Crivela",
+            "CPF": "12121212121",
+            "departamento": "Humanas",
+            "password": "12345678"
+          }
+        ],
+        "students": [
+          {
+            "id": 0,
+            "name": "Lucas", 
+            "email": "lucas@gmail.com", 
+            "CPF": "11111111111", 
+            "RG": "11111111",
+            "Rua": "x",
+            "numero": "333",
+            "bairro": "Eldorado",
+            "cidade": "Contagem"
+          }
+        ]
+      }
+    ]
+  }
+]
