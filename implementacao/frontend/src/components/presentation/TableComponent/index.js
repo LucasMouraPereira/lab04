@@ -1,12 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
+import api from "utils/api";
 
 import Button from "components/Button";
 
 import * as S from "./styled";
 
 const TableComponent = ({ table }) => {
+  const deletedRegistration = async (id) => {
+    await api.delete(`/deleteUser/${id}`);
+  };
+
+  const changeRegistration = async (id) => {
+    await api.put(`/updatePassword/${id}`);
+  };
+  
   return (
     <>
       <Table striped bordered hover>
@@ -27,12 +36,22 @@ const TableComponent = ({ table }) => {
                 <td>{password}</td>
                 <S.Td>
                   <S.Button1>
-                    <Button name="Excluir" type="button" mt="8px" />
+                    <Button
+                      name="Excluir"
+                      type="button"
+                      onClick={() => deletedRegistration(id)}
+                      mt="8px"
+                    />
                   </S.Button1>
                 </S.Td>
                 <S.Td>
                   <S.Button2>
-                    <Button name="Alterar" type="button" mt="8px" />
+                    <Button
+                      name="Alterar"
+                      type="button"
+                      onClick={() => changeRegistration(id)}
+                      mt="8px"
+                    />
                   </S.Button2>
                 </S.Td>
               </>

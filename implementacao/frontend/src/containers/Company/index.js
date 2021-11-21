@@ -11,6 +11,7 @@ const Company = () => {
       <h1>Área do Empresa</h1>
       <S.WrapperTable>
         <TableComponent table={table} />
+        <a href="/">Voltar para o cadastro</a>
       </S.WrapperTable>
     </S.ContentStudent>
   );

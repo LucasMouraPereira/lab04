@@ -33,6 +33,7 @@ const Home = () => {
             ]}
           />
         </S.WrapperTabs>
+        <a href="/login">Fazer login</a>
       </S.WrapperHome>
     </S.ContentHome>
   );

@@ -11,7 +11,9 @@ const Student = () => {
       <h1>Área do Aluno</h1>
       <S.WrapperTable>
         <TableComponent table={table} />
+        <a href="/">Voltar para o cadastro</a>
       </S.WrapperTable>
+      
     </S.ContentStudent>
   );
 };
