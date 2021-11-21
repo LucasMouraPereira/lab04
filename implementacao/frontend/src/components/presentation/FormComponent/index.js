@@ -32,17 +32,17 @@ const FormComponent = ({ user }) => {
   const onSubmit = async (values) => {
     try {
       if (user === 0) {
-        // await api.post("/signUp/student", {
-        //   email: values.email,
-        //   password: values.password,
-        // });
+        await api.post("/signUp/student", {
+          email: values.email,
+          password: values.password,
+        });
         router.push(STUDENT);
       }
       if (user === 1) {
-        // await api.post("/signUp/company", {
-        //   email: values.email,
-        //   password: values.password,
-        // });
+        await api.post("/signUp/company", {
+          email: values.email,
+          password: values.password,
+        });
         router.push(COMPANY);
       }
     } catch (error) {

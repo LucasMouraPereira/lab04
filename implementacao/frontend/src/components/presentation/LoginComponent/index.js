@@ -1,4 +1,5 @@
 import React from "react";
+import api from "utils/api";
 
 import { useRouter } from "next/router";
 import { STUDENT } from "utils/constants/urls";
@@ -25,6 +26,8 @@ const FormComponent = () => {
 
   const onSubmit = async (values) => {
     try {
+      const { data } = await api.get("/login");
+      console.log(data);
       console.log(values);
       router.push(STUDENT);
     } catch (error) {
