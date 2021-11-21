@@ -4,20 +4,22 @@ import PropTypes from "prop-types";
 import * as S from "./styled";
 
 const Tabs = ({ active, tabs }) => (
-  <>
-    <S.Flex>
+  <S.Flex>
+    <S.ContentTab>
       {tabs.map((tab, index) => (
         <S.WrapperTab>
           <S.Title key={index} active={active === index} onClick={tab.callback}>
             <h3>{tab.title}</h3>
           </S.Title>
-          <S.Content key={index} active={active === index}>
-            {tab.content}
-          </S.Content>
         </S.WrapperTab>
       ))}
-    </S.Flex>
-  </>
+    </S.ContentTab>
+    {tabs.map((tab, index) => (
+      <S.Content key={index} active={active === index}>
+        {tab.content}
+      </S.Content>
+    ))}
+  </S.Flex>
 );
 
 Tabs.propTypes = {

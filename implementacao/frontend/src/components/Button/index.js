@@ -30,7 +30,7 @@ const Button = ({
 
 Button.defaultProps = {
   name: "Type my name",
-  type: "button",
+  type: "submit",
   variant: [],
   as: "button",
   onClick: () => {},

@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Flexbox = styled.div`
   width: auto;
   max-width: 310px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Label = styled.label`
@@ -40,6 +42,5 @@ export const Error = styled.span`
   font-size: 12px;
   color: red;
   align-self: flex-end;
-  margin-top: 10px;
   margin-bottom: 10px;
 `;
