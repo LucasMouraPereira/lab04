@@ -2,7 +2,7 @@ import React from "react";
 import api from "utils/api";
 
 import { useRouter } from "next/router";
-import { STUDENT } from "utils/constants/urls";
+import { STUDENT, COMPANY } from "utils/constants/urls";
 
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
@@ -26,10 +26,18 @@ const FormComponent = () => {
 
   const onSubmit = async (values) => {
     try {
-      const { data } = await api.get("/login");
+      const { data } = await api.get("/login", {
+        email: values.email,
+        password: values.password,
+      });
       console.log(data);
-      console.log(values);
-      router.push(STUDENT);
+      const responseType = data.type;
+      if (responseType === "student") {
+        router.push(STUDENT);
+      }
+      if (responseType === "company") {
+        router.push(COMPANY);
+      }
     } catch (error) {
       console.info(error);
     }
@@ -63,7 +71,7 @@ const FormComponent = () => {
               </S.WrapperInput>
             </S.FlexForm>
             <S.Button>
-              <Button name="Cadastrar" type="submit" mt="12px" />
+              <Button name="Entrar" type="submit" mt="12px" />
             </S.Button>
           </Form>
         )}
