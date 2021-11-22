@@ -22,7 +22,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping(path = "/login")
+    @PostMapping(path = "/login")
     public ResponseEntity<Object> signIn(@RequestBody UserDTO userDTO) {
         User user = userService.getUser(userDTO.getEmail() ,userDTO.getPassword());
 

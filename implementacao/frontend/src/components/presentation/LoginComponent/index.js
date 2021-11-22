@@ -26,20 +26,19 @@ const FormComponent = () => {
 
   const onSubmit = async (values) => {
     try {
-      const { data } = await api.get("/login", {
-        email: values.email,
-        password: values.password,
-      });
-      console.log(data);
-      const responseType = data.type;
+      const response = await api.post("/login", values);
+      const responseType = response.data.type;
       if (responseType === "student") {
         router.push(STUDENT);
       }
       if (responseType === "company") {
         router.push(COMPANY);
       }
+      /*if (responseType === "professor") {
+        router.push(PROFESSOR);
+      }*/
     } catch (error) {
-      console.info(error);
+      console.log(error);
     }
   };
 

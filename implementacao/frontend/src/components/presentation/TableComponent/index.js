@@ -9,13 +9,13 @@ import * as S from "./styled";
 
 const TableComponent = ({ table }) => {
   const deletedRegistration = async (id) => {
-    await api.delete(`/deleteUser/${id}`);
+    await api.delete(`/deleteUser/4`);
   };
 
-  const changeRegistration = async (id) => {
-    await api.put(`/updatePassword/${id}`);
+  const changeRegistration = async (id, password) => {
+    await api.put(`/updatePassword/3`, { "password": "987654321" });
   };
-  
+
   return (
     <>
       <Table striped bordered hover>
@@ -49,7 +49,7 @@ const TableComponent = ({ table }) => {
                     <Button
                       name="Alterar"
                       type="button"
-                      onClick={() => changeRegistration(id)}
+                      onClick={() => changeRegistration(id, password)}
                       mt="8px"
                     />
                   </S.Button2>
