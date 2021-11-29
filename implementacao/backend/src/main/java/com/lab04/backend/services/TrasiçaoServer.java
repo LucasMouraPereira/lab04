@@ -20,7 +20,7 @@ public class trasiçaoService {
     }
 
     public trasiçao gettrasiçao(Interger Ano, long Lastro){
-        return TransiçaoRepository.gettrasiçaoByEmailAndPassword(email, password);
+        return TransiçaoRepository.gettrasiçaoByEmailAndPassword(Ano, Lastro);
     }
 
     /*public trasiçao gettrasiçao(Integer id){
