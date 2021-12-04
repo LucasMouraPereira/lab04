@@ -1,26 +1,27 @@
 package com.lab04.backend.models;
 
-public class vendas{
+public class vantagens{
 
 private String nome;
-private String descriçao;
-private Moeda preço;
+private String descricao;
+private Moeda preco;
 
 //constructo
 
-vendas(){
+Vantagens(){
 
 }
-vendas(String nomes,String descriçao,Moeda Moeda){
+
+vantagens(String nomes,String descricao,Moeda Moeda){
     this.nome=nomes;
-    this.descriçao=descriçao;
+    this.descricao=descricao;
     this.Moeda=Moeda;
 
 }
-vendas(String nomes,String descriçao,long Lastro, Interge Ano){
+vantagens(String nomes,String descricao,long Lastro, Interge Ano){
     this.Moeda= new Moeda(long Lastro,Integer Ano);
     this.nome=nome;
-    this.descriçao=descriçao;
+    this.descricao=descricao;
 }
 
 // get set
