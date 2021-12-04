@@ -5,16 +5,20 @@ import TableComponent from "components/presentation/TableComponent";
 
 import * as S from "./styled";
 
-const Student = () => {
+const Teacher = () => {
   return (
     <S.ContentStudent>
-      <h1>Área do Aluno</h1>
+      <h1>Área do Professor</h1>
       <S.WrapperTable>
         <TableComponent table={table} type="default" />
+        <div>
+          <span>Saldo: </span>
+          <strong>{`${1000} merit`}</strong>
+        </div>
         <a href="/">Voltar para o cadastro</a>
       </S.WrapperTable>
     </S.ContentStudent>
   );
 };
 
-export default Student;
+export default Teacher;
