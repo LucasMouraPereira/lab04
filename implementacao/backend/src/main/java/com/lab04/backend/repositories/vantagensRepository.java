@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface UserRepository extends JpaRepository <vantagens, Integer>{
 
-    User getUserByEmailAndPassword(String nome,String descriçao,Moeda preco);
+    User getUserByEmailAndPassword(String nome,String descriçao,float preco);
 
    
 }
