@@ -24,6 +24,15 @@ export const WrapperTable = styled.div`
   width: 100%;
   max-width: 1186px;
   margin: 0 auto;
+  a {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 10px;
+    }
+  }
   tr {
     border-color: #333;
     vertical-align: middle;

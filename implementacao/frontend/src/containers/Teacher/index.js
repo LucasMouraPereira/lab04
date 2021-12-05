@@ -1,7 +1,11 @@
 import React from "react";
 
 import table from "utils/mocks/table.json";
+import tableListStudents from "utils/mocks/tableListStudents.json";
 import TableComponent from "components/presentation/TableComponent";
+import Balance from "components/presentation/Balance";
+
+import ArrowBack from "static/images/svg/arrow-left.svg";
 
 import * as S from "./styled";
 
@@ -10,12 +14,13 @@ const Teacher = () => {
     <S.ContentStudent>
       <h1>Área do Professor</h1>
       <S.WrapperTable>
+        <a href="/">
+          <ArrowBack />
+          Voltar para o cadastro
+        </a>
         <TableComponent table={table} type="default" />
-        <div>
-          <span>Saldo: </span>
-          <strong>{`${1000} merit`}</strong>
-        </div>
-        <a href="/">Voltar para o cadastro</a>
+        <Balance />
+        <TableComponent table={tableListStudents} type="listStudents" />
       </S.WrapperTable>
     </S.ContentStudent>
   );
