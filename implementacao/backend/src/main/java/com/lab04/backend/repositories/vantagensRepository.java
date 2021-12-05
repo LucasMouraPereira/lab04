@@ -6,9 +6,10 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface UserRepository extends JpaRepository <vantagens, Integer>{
+public interface vantagensRepository extends JpaRepository <vantagens, Integer>{
 
-    User getUserByEmailAndPassword(String nome,String descriçao,float preco);
+    vantagen createvantagempartes(String nome,String descriçao,float preco);
 
+    vantagen createvantagem(vantagen v);
    
 }

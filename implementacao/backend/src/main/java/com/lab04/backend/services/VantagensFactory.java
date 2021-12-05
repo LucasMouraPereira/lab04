@@ -12,7 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 //_____________________________________
-public vantagens Gerarvantagens(vantagens newvantagens){
-    vantagens newvantagens = vantagens;
-    return newvantagens;
+
+public class vantagensFactory{ 
+    
+    vantagensRepository van 
+    
+    public vantagens Gerarvantagens(vantagens newvantagens){
+        
+        return van.createvantagem(newvantagens);
+    }
 }
