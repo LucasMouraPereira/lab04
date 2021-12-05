@@ -22,10 +22,18 @@ public class empresacontroller extends UserController {
     @PostMapping(path = "/signUp/student")
     public ResponseEntity<Object> create (@RequestBody vantagens vantagen) {
         
-    vantagens.Gerarvantagens(vantagen)
+    Vantagem.Gerarvantagens(vantagen);
 
 
     }
+    @PostMapping(path = "/signUp/student")
+    public ResponseEntity<Object> UPDATE (@RequestBody vantagens vantagen,Integer quant) {
+        
+        Vantagem.Updatevantagens(vantagen quant);
+
+
+    }
+
 
 
 }

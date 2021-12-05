@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface vantagensRepository extends JpaRepository <vantagens, Integer>{
 
-    vantagen createvantagempartes(String nome,String descriçao,float preco);
+    void createvantagempartes(String nome,String descriçao,float preco);
 
-    vantagen createvantagem(vantagen v);
+    void createvantagem(vantagen v);
    
+
+    void UPDATE(String nome, Integer cont);
 }

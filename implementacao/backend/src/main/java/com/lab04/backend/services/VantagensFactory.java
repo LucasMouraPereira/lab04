@@ -21,4 +21,7 @@ public class vantagensFactory{
         
         return van.createvantagem(newvantagens);
     }
+    public void Updatevantagens(vantagen newvantagens,Interger quant){
+         return van.UPDATE(newvantagens, Integer quant);
+    }
 }
