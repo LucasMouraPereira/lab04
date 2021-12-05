@@ -5,7 +5,7 @@ public class vantagens{
 private String nome;
 private String descricao;
 private Moeda preco;
-private empresa origem  
+//private empresa origem  
 
 //constructo
 
@@ -13,7 +13,7 @@ Vantagens(){
 
 }
 
-vantagens(String nomes,String descricao,Moeda Moeda,empresa proprietario){
+vantagens(String nomes,String descricao,Moeda Moeda){
     this.nome=nomes;
     this.descricao=descricao;
     this.Moeda=Moeda;
