@@ -3,9 +3,9 @@ package models
 import java.util.List
 import java.util.ArrayList;
 
-public empresa{
+public empresa extends User{
     private String nome;
-    List<vantagens>=Vantagens = new ArrayList<>()
+    List<vantagens>produto = new ArrayList<>()
     empresa(){
 
     }
