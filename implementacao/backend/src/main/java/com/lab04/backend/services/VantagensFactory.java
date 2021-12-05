@@ -17,7 +17,7 @@ public class vantagensFactory{
     
     vantagensRepository van 
     
-    public vantagens Gerarvantagens(vantagens newvantagens){
+    public void Gerarvantagens(vantagens newvantagens){
         
         return van.createvantagem(newvantagens);
     }
