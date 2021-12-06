@@ -1,6 +1,6 @@
 const Routes = require("next-routes");
 
-const { HOME, STUDENT, COMPANY, LOGIN } = require("../utils/constants/urls");
+const { HOME, STUDENT, COMPANY, TEACHER, LOGIN } = require("../utils/constants/urls");
 
 module.exports = Routes()
   // Home
@@ -11,6 +11,9 @@ module.exports = Routes()
 
   // Student
   .add({ name: "Student", pattern: STUDENT, page: "Student" })
+
+  // Teacher
+  .add({ name: "Teacher", pattern: TEACHER, page: "Teacher" })
 
   // Company
   .add({ name: "Company", pattern: COMPANY, page: "Company" });

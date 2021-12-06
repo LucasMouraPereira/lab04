@@ -2,7 +2,7 @@ import React from "react";
 import api from "utils/api";
 
 import { useRouter } from "next/router";
-import { STUDENT, COMPANY } from "utils/constants/urls";
+import { STUDENT, COMPANY, TEACHER } from "utils/constants/urls";
 
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
@@ -34,9 +34,9 @@ const FormComponent = () => {
       if (responseType === "company") {
         router.push(COMPANY);
       }
-      /*if (responseType === "professor") {
-        router.push(PROFESSOR);
-      }*/
+      if (responseType === "professor") {
+        router.push(TEACHER);
+      }
     } catch (error) {
       console.log(error);
     }

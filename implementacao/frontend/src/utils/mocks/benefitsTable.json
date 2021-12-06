@@ -1,0 +1,10 @@
+{
+  "tableHeader": ["id", "Vantagem", "Valor", "Excluir", "Alterar"],
+  "tableBody": [
+    {
+      "id": 1,
+      "name": "macarrão",
+      "value": "50"
+    }
+  ]
+}
