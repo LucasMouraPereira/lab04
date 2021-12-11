@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import api from "utils/api";
@@ -14,8 +15,13 @@ import * as S from "./styled";
 const TableComponent = ({ table, type }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentId, setCurrentId] = useState(null);
+  const [bodyUser, setBodyUser] = useState([]);
 
   const deletedRegistration = async (id) => {
+    Cookies.remove("id");
+    Cookies.remove("email");
+    Cookies.remove("type");
+    Cookies.remove("password");
     await api.delete(`/deleteUser/${id}`);
   };
 
@@ -23,9 +29,25 @@ const TableComponent = ({ table, type }) => {
     await api.delete(`/deleteBenefit/${id}`);
   };
 
-  const buyBenefits = async (id) => {
-    await api.put(`/buyBenefit/${id}`);
-  };
+  // const buyBenefits = async (id) => {
+  //   await api.put(`/buyBenefit/${id}`);
+  // };
+
+  useEffect(() => {
+    const id = Cookies.get("id");
+    const email = Cookies.get("email");
+    const typeUser = Cookies.get("type");
+    const password = Cookies.get("password");
+
+    setBodyUser([
+      {
+        id,
+        name: email,
+        type: typeUser,
+        password,
+      },
+    ]);
+  }, []);
 
   return (
     <>
@@ -38,16 +60,51 @@ const TableComponent = ({ table, type }) => {
           </tr>
         </thead>
         <tbody>
-          {table?.tableBody.map((body) => (
-            <tr>
-              {body.id && <td>{body.id}</td>}
+          {type === "default" &&
+            bodyUser.map((body) => (
+              <tr>
+                <td>{body.id}</td>
+                <td>{body.name}</td>
+                <td>{body.type}</td>
+                <td>{body.password}</td>
+                <S.Td>
+                  <S.Button1>
+                    <Button
+                      name="Excluir"
+                      type="button"
+                      onClick={() => {
+                        body.value ? deletedBenefits(body.id) : deletedRegistration(body.id);
+                      }}
+                      mt="8px"
+                    />
+                  </S.Button1>
+                </S.Td>
+                <S.Td>
+                  <S.Button2>
+                    <Button
+                      name="Alterar"
+                      type="button"
+                      onClick={() => {
+                        setIsOpen(true);
+                        setCurrentId(body.id);
+                      }}
+                      mt="8px"
+                    />
+                  </S.Button2>
+                </S.Td>
+              </tr>
+            ))}
+
+          {/* {table?.tableBody.map((body) => (
+            <tr> */}
+          {/* {body.id && <td>{body.id}</td>}
               {body.company && <td>{body.company}</td>}
               {body.name && <td>{body.name}</td>}
               {body.type && <td>{body.type}</td>}
               {body.password && <td>{body.password}</td>}
               {body.value && <td>{body.value}</td>}
-              {body.balance && <td>{body.balance}</td>}
-              {type === "listStudents" && (
+              {body.balance && <td>{body.balance}</td>} */}
+          {/* {type === "listStudents" && (
                 <S.Td>
                   <S.Button1>
                     <Button
@@ -61,8 +118,8 @@ const TableComponent = ({ table, type }) => {
                     />
                   </S.Button1>
                 </S.Td>
-              )}
-              {type === "listBenefits" && (
+              )} */}
+          {/* {type === "listBenefits" && (
                 <S.Td>
                   <S.Button1>
                     <Button
@@ -73,38 +130,9 @@ const TableComponent = ({ table, type }) => {
                     />
                   </S.Button1>
                 </S.Td>
-              )}
-              {type === "default" && (
-                <>
-                  <S.Td>
-                    <S.Button1>
-                      <Button
-                        name="Excluir"
-                        type="button"
-                        onClick={() => {
-                          body.value ? deletedBenefits(body.id) : deletedRegistration(body.id);
-                        }}
-                        mt="8px"
-                      />
-                    </S.Button1>
-                  </S.Td>
-                  <S.Td>
-                    <S.Button2>
-                      <Button
-                        name="Alterar"
-                        type="button"
-                        onClick={() => {
-                          setIsOpen(true);
-                          setCurrentId(body.id);
-                        }}
-                        mt="8px"
-                      />
-                    </S.Button2>
-                  </S.Td>
-                </>
-              )}
-            </tr>
-          ))}
+              )} */}
+
+          {/* ))} */}
         </tbody>
       </Table>
       {type === "listStudents" ? (

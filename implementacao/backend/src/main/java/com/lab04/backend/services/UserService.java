@@ -14,6 +14,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+//    public List<User> listAllCourse(){
+//        return userRepository.findAll();
+//    }
 
     public User createUser(UserDTO newUserDTO){
         User newUser = new User(newUserDTO);

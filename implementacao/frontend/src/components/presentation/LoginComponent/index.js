@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from "js-cookie";
 import api from "utils/api";
 
 import { useRouter } from "next/router";
@@ -26,8 +27,12 @@ const FormComponent = () => {
 
   const onSubmit = async (values) => {
     try {
-      const response = await api.post("/login", values);
-      const responseType = response.data.type;
+      const { data } = await api.post("/login", values);
+      const responseType = data.type;
+      Cookies.set("id", JSON.stringify(data.id));
+      Cookies.set("email", JSON.stringify(data.email));
+      Cookies.set("password", JSON.stringify(data.password));
+      Cookies.set("type", JSON.stringify(data.type));
       if (responseType === "student") {
         router.push(STUDENT);
       }
