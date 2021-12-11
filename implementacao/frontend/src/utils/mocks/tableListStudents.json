@@ -1,0 +1,16 @@
+{
+  "tableHeader": ["id", "Nome", "Saldo", "Depositar"],
+  "tableBody": [
+    {
+      "id": 1,
+      "name": "Lucas",
+      "balance": 50
+
+    },
+    {
+      "id": 2,
+      "name": "Geovane",
+      "balance": 100
+    }
+  ]
+}

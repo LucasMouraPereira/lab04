@@ -1,7 +1,7 @@
 import React from "react";
 
 import table from "utils/mocks/table.json";
-import tableListBenefits from "utils/mocks/tableListBenefits.json";
+import tableListStudents from "utils/mocks/tableListStudents.json";
 import TableComponent from "components/presentation/TableComponent";
 import Balance from "components/presentation/Balance";
 
@@ -9,10 +9,10 @@ import ArrowBack from "static/images/svg/arrow-left.svg";
 
 import * as S from "./styled";
 
-const Student = () => {
+const Teacher = () => {
   return (
     <S.ContentStudent>
-      <h1>Área do Aluno</h1>
+      <h1>Área do Professor</h1>
       <S.WrapperTable>
         <a href="/">
           <ArrowBack />
@@ -20,10 +20,10 @@ const Student = () => {
         </a>
         <TableComponent table={table} type="default" />
         <Balance />
-        <TableComponent table={tableListBenefits} type="listBenefits" />
+        <TableComponent table={tableListStudents} type="listStudents" />
       </S.WrapperTable>
     </S.ContentStudent>
   );
 };
 
-export default Student;
+export default Teacher;

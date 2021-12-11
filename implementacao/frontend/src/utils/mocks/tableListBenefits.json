@@ -1,0 +1,17 @@
+{
+  "tableHeader": ["id", "Empresa", "Vantagem", "Valor", "Comprar"],
+  "tableBody": [
+    {
+      "id": 1,
+      "company": "Laches Veronika",
+      "name": "macarrão",
+      "value": "50"
+    },
+    {
+      "id": 1,
+      "company": "Livraria do Geraldo",
+      "name": "Livro",
+      "value": "30"
+    }
+  ]
+}
