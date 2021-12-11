@@ -41,11 +41,4 @@ public class User {
         this.type = type;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }
