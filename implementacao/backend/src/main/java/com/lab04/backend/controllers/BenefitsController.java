@@ -18,7 +18,7 @@ public class BenefitsController {
     BenefitsService benefitsService;
 
     @PostMapping(path = "/create/benefits")
-    public ResponseEntity<Object> signUpBenefits(@RequestBody BenefitsDTO benefitsDTO) {
+    public ResponseEntity<Object> createBenefits(@RequestBody BenefitsDTO benefitsDTO) {
         Benefits createdBenefits = benefitsService.createBenefits(benefitsDTO);
 
         if (createdBenefits == null) {

@@ -6,11 +6,17 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface UserRepository extends JpaRepository<User, Integer>{
 //    @Query(value = "SELECT ID, NAME, EMAIL, PASSWORD, TYPE FROM USER u WHERE u.EMAIL = ?1 AND u.PASSWORD = ?2", nativeQuery = true)
 //    List<Object> login(String email, String password);
 
     User getUserByEmailAndPassword(String email, String password);
+
+    User getUserByIdAndAndType(Integer id, String type);
+
+    List<User> getUsersByType(String type);
 
     @Modifying
     @Transactional
