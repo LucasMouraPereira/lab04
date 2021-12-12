@@ -1,4 +1,5 @@
 package com.lab04.backend.models;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.lab04.backend.dtos.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +24,10 @@ public class User {
 
     @Column(name = "type", length = 100, nullable = false)
     private String type;
+
+    @JsonManagedReference
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    private CoinBalance coinBalance;
 
     public User() {
     }
