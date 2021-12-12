@@ -5,6 +5,7 @@ import com.lab04.backend.models.Benefits;
 import com.lab04.backend.repositories.BenefitsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class BenefitsService {
@@ -15,4 +16,9 @@ public class BenefitsService {
         Benefits newBenefits = new Benefits(newBenefitsDTO);
         return benefitsRepository.save(newBenefits);
     }
+    public List<Benefits> ListBenefits()
+    {
+    	return benefitsRepository.getall();
+    }
+    
 }
