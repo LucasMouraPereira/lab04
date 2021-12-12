@@ -1,13 +1,17 @@
 package com.lab04.backend.services;
 
 import com.lab04.backend.dtos.UserDTO;
+import com.lab04.backend.models.CoinBalance;
 import com.lab04.backend.models.User;
+import com.lab04.backend.repositories.CoinBalanceRepository;
 import com.lab04.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserService {
@@ -15,13 +19,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-//    public List<User> listAllCourse(){
-//        return userRepository.findAll();
-//    }
+    @Autowired
+    private CoinBalanceRepository coinBalanceRepository;
 
     public User createUser(UserDTO newUserDTO){
-        User newUser = new User(newUserDTO);
-        return userRepository.save(newUser);
+        User createdUser =  userRepository.save(new User(newUserDTO));
+
+        if(Objects.equals(createdUser.getType(), "student")){
+            coinBalanceRepository.save(new CoinBalance(null, Calendar.getInstance(), 0F, createdUser));
+        }
+        return getUser(createdUser.getId());
     }
 
     public User getUser(Integer id){

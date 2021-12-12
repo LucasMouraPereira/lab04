@@ -2,7 +2,6 @@ package com.lab04.backend.controllers;
 
 import com.lab04.backend.dtos.BenefitsDTO;
 import com.lab04.backend.models.Benefits;
-import com.lab04.backend.models.User;
 import com.lab04.backend.services.BenefitsService;
 
 import java.util.List;
@@ -16,12 +15,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @CrossOrigin(origins = "*")
+@RequestMapping("benefits")
 public class BenefitsController {
 
     @Autowired
     BenefitsService benefitsService;
 
-    @PostMapping(path = "/create/benefits")
+    @PostMapping(path = "/create")
     public ResponseEntity<Object> createBenefits(@RequestBody BenefitsDTO benefitsDTO) {
         Benefits createdBenefits = benefitsService.createBenefits(benefitsDTO);
 

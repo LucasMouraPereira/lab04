@@ -1,17 +1,11 @@
 package com.lab04.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GenerationType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToOne;
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Getter
@@ -25,21 +19,22 @@ public class CoinBalance {
     private Integer id;
 
     @Column(name = "last_update", nullable = false)
-    private Date lastUpdate;
+    private Calendar lastUpdate;
 
-    @Column(name = "balance_number", nullable = false)
-    private Float balanceNumber;
+    @Column(name = "balance_value", nullable = false)
+    private Float balanceValue;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonBackReference
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
     public CoinBalance() {
     }
 
-    public CoinBalance(Integer id, Date lastUpdate, Float balanceNumber) {
+    public CoinBalance(Integer id, Calendar lastUpdate, Float balanceValue, User user) {
         this.id = id;
         this.lastUpdate = lastUpdate;
-        this.balanceNumber = balanceNumber;
+        this.balanceValue = balanceValue;
+        this.user = user;
     }
 }
