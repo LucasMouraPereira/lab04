@@ -35,6 +35,9 @@ export const ModalContent = styled.div`
   @media (max-width: ${sizes.md}) {
     border-radius: 8px;
   }
+   {
+    ${(style) => style}
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -46,8 +49,14 @@ export const ModalHeader = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 16px;
+  width: 100%;
   line-height: 32px;
+  color: #333333;
+  font-size: 21px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ModalBody = styled.div`

@@ -16,6 +16,7 @@ const TableComponent = ({ table, type }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [bodyUser, setBodyUser] = useState([]);
+  const [listStudents, setListStudents] = useState([]);
 
   const deletedRegistration = async (id) => {
     Cookies.remove("id");
@@ -29,9 +30,9 @@ const TableComponent = ({ table, type }) => {
     await api.delete(`/deleteBenefit/${id}`);
   };
 
-  // const buyBenefits = async (id) => {
-  //   await api.put(`/buyBenefit/${id}`);
-  // };
+  const buyBenefits = async (id) => {
+    await api.put(`/buyBenefit/${id}`);
+  };
 
   useEffect(() => {
     const id = Cookies.get("id");
@@ -48,6 +49,26 @@ const TableComponent = ({ table, type }) => {
       },
     ]);
   }, []);
+
+  useEffect(() => {
+    const studentList = async () => {
+      const { data } = await api.get("/student/");
+      setListStudents(data);
+    };
+    studentList();
+  }, []);
+
+  const handleTotalValue = (bodyValue) => {
+    return (
+      table?.tableBody.reduce((acc, atualValue) => {
+        return acc + atualValue.value;
+      }, 0) -
+      (table?.tableBody.reduce((acc, atualValue) => {
+        return acc + atualValue.value;
+      }, 0) -
+        bodyValue)
+    );
+  };
 
   return (
     <>
@@ -95,16 +116,12 @@ const TableComponent = ({ table, type }) => {
               </tr>
             ))}
 
-          {/* {table?.tableBody.map((body) => (
-            <tr> */}
-          {/* {body.id && <td>{body.id}</td>}
-              {body.company && <td>{body.company}</td>}
-              {body.name && <td>{body.name}</td>}
-              {body.type && <td>{body.type}</td>}
-              {body.password && <td>{body.password}</td>}
-              {body.value && <td>{body.value}</td>}
-              {body.balance && <td>{body.balance}</td>} */}
-          {/* {type === "listStudents" && (
+          {type === "listStudents" &&
+            listStudents.map((body) => (
+              <tr>
+                <td>{body.id}</td>
+                <td>{body.email}</td>
+                <td>{body.balance || 50}</td>
                 <S.Td>
                   <S.Button1>
                     <Button
@@ -118,8 +135,50 @@ const TableComponent = ({ table, type }) => {
                     />
                   </S.Button1>
                 </S.Td>
-              )} */}
-          {/* {type === "listBenefits" && (
+              </tr>
+            ))}
+
+          {type === "registerBenefits" &&
+            table?.tableBody.map((body) => (
+              <tr>
+                <td>{body.id}</td>
+                <td>{body.name}</td>
+                <td>{body.value}</td>
+                <S.Td>
+                  <S.Button1>
+                    <Button
+                      name="Excluir"
+                      type="button"
+                      onClick={() => {
+                        body.value ? deletedBenefits(body.id) : deletedRegistration(body.id);
+                      }}
+                      mt="8px"
+                    />
+                  </S.Button1>
+                </S.Td>
+                <S.Td>
+                  <S.Button2>
+                    <Button
+                      name="Alterar"
+                      type="button"
+                      onClick={() => {
+                        setIsOpen(true);
+                        setCurrentId(body.id);
+                      }}
+                      mt="8px"
+                    />
+                  </S.Button2>
+                </S.Td>
+              </tr>
+            ))}
+
+          {type === "listBenefits" &&
+            table?.tableBody.map((body) => (
+              <tr>
+                <td>{body.id}</td>
+                <td>{body.company}</td>
+                <td>{body.name}</td>
+                <td>{body.value}</td>
                 <S.Td>
                   <S.Button1>
                     <Button
@@ -130,9 +189,18 @@ const TableComponent = ({ table, type }) => {
                     />
                   </S.Button1>
                 </S.Td>
-              )} */}
+              </tr>
+            ))}
 
-          {/* ))} */}
+          {type === "extracts" &&
+            table?.tableBody.map((body) => (
+              <tr>
+                <td>{body.date}</td>
+                <td>{body.description}</td>
+                <td>{body.value}</td>
+                <td>{handleTotalValue(body.value)}</td>
+              </tr>
+            ))}
         </tbody>
       </Table>
       {type === "listStudents" ? (

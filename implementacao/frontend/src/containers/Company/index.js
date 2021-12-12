@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import table from "utils/mocks/table.json";
 import benefitsTable from "utils/mocks/benefitsTable.json";
 
-import TableComponent from "components/presentation/TableComponent";
 import FormBenefits from "components/presentation/FormBenefits";
 import Button from "components/Button";
 import Modal from "components/Modal";
+import TableComponent from "components/presentation/TableComponent";
 
 import ArrowBack from "static/images/svg/arrow-left.svg";
 
@@ -32,7 +32,7 @@ const Company = () => {
           />
           <S.WrapperBenefits>
             {benefitsTable.tableBody.length > 0 && (
-              <TableComponent table={benefitsTable} type="default" />
+              <TableComponent table={benefitsTable} type="registerBenefits" />
             )}
           </S.WrapperBenefits>
         </div>

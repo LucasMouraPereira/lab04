@@ -1,0 +1,30 @@
+{
+  "tableHeader": ["Data da transação", "Descrição", "Valor", "Valor Total"],
+  "tableBody": [
+    {
+      "date": "11/02/2017",
+      "description": "Depósito",
+      "value": 50
+    },
+    {
+      "date": "11/03/2017",
+      "description": "Depósito",
+      "value": 150
+    },
+    {
+      "date": "11/04/2017",
+      "description": "retirada",
+      "value": -80
+    },
+    {
+      "date": "11/05/2017",
+      "description": "Depósito",
+      "value": 250
+    },
+    {
+      "date": "11/06/2017",
+      "description": "retirada",
+      "value": -60
+    }
+  ]
+}
