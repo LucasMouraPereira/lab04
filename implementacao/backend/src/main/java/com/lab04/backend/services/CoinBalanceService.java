@@ -1,5 +1,6 @@
 package com.lab04.backend.services;
 
+import com.lab04.backend.dtos.TransactionDTO;
 import com.lab04.backend.models.CoinBalance;
 import com.lab04.backend.models.User;
 import com.lab04.backend.repositories.CoinBalanceRepository;
@@ -20,13 +21,23 @@ public class CoinBalanceService {
     }
 
     public void updateCoinBalanceByUser(Float value, User user) throws ServiceException{
-        hasValidCoinValue(value, user);
         coinBalanceRepository.updateCoinBalanceByUser(Calendar.getInstance(), value, user);
     }
 
-    public void hasValidCoinValue(Float value, User user) throws ServiceException{
+    public void updateCoinBalanceByTransaction(TransactionDTO newTransactionDTO) throws ServiceException{
+        try{
+            hasNegativeBalance(newTransactionDTO.getValue(), newTransactionDTO.getFrom());
+
+            updateCoinBalanceByUser(-Math.abs(newTransactionDTO.getValue()), newTransactionDTO.getFrom());
+            updateCoinBalanceByUser(newTransactionDTO.getValue(), newTransactionDTO.getTo());
+        }catch (ServiceException se){
+            throw new ServiceException(se.getMessage());
+        }
+    }
+
+    public void hasNegativeBalance(Float value, User user) throws ServiceException{
         Float currentValue = getCoinBalance(user).getBalanceValue();
-       if (currentValue + value < 0){
+       if (currentValue < value){
            throw new ServiceException("Valor " + value + " inválido | O saldo não pode ser negativo");
        }
     }
