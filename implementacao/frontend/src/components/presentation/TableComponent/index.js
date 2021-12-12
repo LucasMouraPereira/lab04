@@ -58,16 +58,12 @@ const TableComponent = ({ table, type }) => {
     studentList();
   }, []);
 
-  const handleTotalValue = (bodyValue) => {
-    return (
-      table?.tableBody.reduce((acc, atualValue) => {
-        return acc + atualValue.value;
-      }, 0) -
-      (table?.tableBody.reduce((acc, atualValue) => {
-        return acc + atualValue.value;
-      }, 0) -
-        bodyValue)
-    );
+  const handleTotalValue = (bodyValue, last, index) => {
+    const lastValue = index === 0 ? 0 : last;
+    const sum = bodyValue + lastValue;
+    // const values = table?.tableBody.reduce((acc, atual) => acc + atual.value, 0);
+
+    return sum;
   };
 
   return (
@@ -193,12 +189,12 @@ const TableComponent = ({ table, type }) => {
             ))}
 
           {type === "extracts" &&
-            table?.tableBody.map((body) => (
+            table?.tableBody.map((body, index) => (
               <tr>
                 <td>{body.date}</td>
                 <td>{body.description}</td>
                 <td>{body.value}</td>
-                <td>{handleTotalValue(body.value)}</td>
+                <td>{handleTotalValue(body.value, table?.tableBody[index - 1]?.value, index)}</td>
               </tr>
             ))}
         </tbody>
