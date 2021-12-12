@@ -4,14 +4,14 @@ import useOutsideClick from "hooks/useOutsideClick";
 
 import * as S from "./styled";
 
-const Modal = ({ setIsOpen, isOpen, title, content }) => {
+const Modal = ({ style, setIsOpen, isOpen, title, content }) => {
   const wrapperRef = useRef(null);
   useOutsideClick(wrapperRef, () => setIsOpen(false));
 
   return (
     isOpen && (
       <S.Container>
-        <S.ModalContent ref={wrapperRef}>
+        <S.ModalContent ref={wrapperRef} style={style}>
           <S.ModalHeader>
             <S.Title>{title || ""}</S.Title>
             <S.ModalClose onClick={() => setIsOpen(false)}>x</S.ModalClose>
@@ -28,12 +28,14 @@ Modal.propTypes = {
   content: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   setIsOpen: PropTypes.func,
   isOpen: PropTypes.bool,
+  style: PropTypes.objectOf(PropTypes.any),
 };
 
 Modal.defaultProps = {
   title: "",
   setIsOpen: () => {},
   isOpen: false,
+  style: {},
 };
 
 export default Modal;

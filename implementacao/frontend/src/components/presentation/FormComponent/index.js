@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Cookies from "js-cookie";
 import api from "utils/api";
 
 import { useRouter } from "next/router";
@@ -32,17 +33,25 @@ const FormComponent = ({ user }) => {
   const onSubmit = async (values) => {
     try {
       if (user === 0) {
-        await api.post("/signUp/student", {
+        const { data } = await api.post("/signUp/student", {
           email: values.email,
           password: values.password,
         });
+        Cookies.set("id", JSON.stringify(data.id));
+        Cookies.set("email", JSON.stringify(data.email));
+        Cookies.set("password", JSON.stringify(data.password));
+        Cookies.set("type", JSON.stringify(data.type));
         router.push(STUDENT);
       }
       if (user === 1) {
-        await api.post("/signUp/company", {
+        const { data } = await api.post("/signUp/company", {
           email: values.email,
           password: values.password,
         });
+        Cookies.set("id", JSON.stringify(data.id));
+        Cookies.set("email", JSON.stringify(data.email));
+        Cookies.set("password", JSON.stringify(data.password));
+        Cookies.set("type", JSON.stringify(data.type));
         router.push(COMPANY);
       }
     } catch (error) {

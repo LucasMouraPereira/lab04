@@ -5,11 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
-
+import java.util.List;
 public interface BenefitsRepository extends JpaRepository<Benefits, Integer>{
 
     Benefits getBenefitsByNameAndValue(String name, Double value);
-
+    List<Benefits> getall();
     @Modifying
     @Transactional
     @Query("UPDATE Benefits SET name = ?1 WHERE id = ?2")

@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from "js-cookie";
 import PropTypes from "prop-types";
 import Router from "next/router";
 import api from "utils/api";
@@ -26,6 +27,7 @@ const InputChangeRegister = ({ id, type }) => {
   const onSubmit = async (values) => {
     try {
       await api.put(`/updatePassword/${id}`, { password: values.password });
+      Cookies.set("password", JSON.stringify(values.password));
       Router.reload(window.location.pathname);
     } catch (error) {
       console.info(error);

@@ -22,7 +22,6 @@ public class UserService {
     @Autowired
     private CoinBalanceRepository coinBalanceRepository;
 
-
     public User createUser(UserDTO newUserDTO){
         User createdUser =  userRepository.save(new User(newUserDTO));
 

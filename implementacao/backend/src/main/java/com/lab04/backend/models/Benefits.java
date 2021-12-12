@@ -20,6 +20,9 @@ public class Benefits {
 
     @Column(name = "value", length = 100, nullable = false)
     private Double value;
+    
+    @Column(name = "url", length = 100, nullable = false)
+    private String url;
 
     public Benefits() {
     }
@@ -28,6 +31,7 @@ public class Benefits {
         this.id = BenefitsDTO.getId();
         this.name = BenefitsDTO.getName();
         this.value = BenefitsDTO.getValue();
+        this.url=BenefitsDTO.getURL();
     }
 
     public Integer getId() {

@@ -2,7 +2,11 @@ package com.lab04.backend.controllers;
 
 import com.lab04.backend.dtos.BenefitsDTO;
 import com.lab04.backend.models.Benefits;
+import com.lab04.backend.models.User;
 import com.lab04.backend.services.BenefitsService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,6 +30,12 @@ public class BenefitsController {
         } else {
             return ResponseEntity.ok(createdBenefits);
         }
+    }
+    
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Benefits>> getAllBenefits() {
+        List<Benefits> bene = benefitsService.ListBenefits();
+        return ResponseEntity.ok(bene);
     }
 
 }
