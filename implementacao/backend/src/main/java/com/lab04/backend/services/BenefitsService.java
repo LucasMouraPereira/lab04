@@ -18,7 +18,7 @@ public class BenefitsService {
     }
     public List<Benefits> ListBenefits()
     {
-    	return benefitsRepository.getall();
+    	return benefitsRepository.getAllByIdIsNotNull();
     }
     
 }

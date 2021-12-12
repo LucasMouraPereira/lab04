@@ -28,7 +28,7 @@ public class UserService {
         if(Objects.equals(createdUser.getType(), "student")){
             coinBalanceRepository.save(new CoinBalance(null, Calendar.getInstance(), 0F, createdUser));
         }
-        return createdUser;
+        return getUser(createdUser.getId());
     }
 
     public User getUser(Integer id){
